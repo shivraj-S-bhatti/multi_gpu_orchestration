@@ -1,75 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
   <title id="title">World model architecture overview</title>
-  <desc id="desc">Diagram showing the synthetic dataset, multimodal encoders, transformer backbone, and prediction heads.</desc>
-  <rect width="1280" height="760" fill="#F4F7FB"/>
+  <desc id="desc">Diagram showing the synthetic dataset, multimodal encoders, temporal transformer backbone, and prediction heads.</desc>
+  <rect width="1440" height="900" fill="#F4F7FB"/>
   <defs>
     <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0F6CBD"/>
       <stop offset="100%" stop-color="#1F9D8B"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
-      <path d="M0,0 L14,7 L0,14 z" fill="#486071"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#50687A"/>
     </marker>
   </defs>
-  <rect x="34" y="28" width="1212" height="118" rx="26" fill="url(#header)"/>
-  <text x="70" y="82" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">Multimodal World Model Throughput Lab</text>
-  <text x="70" y="116" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#E6F2FA">Synthetic long-horizon trajectories feed a compact world model designed to expose the same performance questions you would ask on a larger training system.</text>
 
-  <rect x="58" y="196" width="240" height="398" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
-  <text x="84" y="234" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Dataset</text>
-  <text x="84" y="266" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">On-the-fly trajectories with long sequence windows</text>
-  <rect x="84" y="300" width="188" height="70" rx="16" fill="#E8F1FA"/>
-  <text x="104" y="342" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F6CBD">Frames</text>
-  <text x="104" y="363" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">RGB snapshots of agent and goal</text>
-  <rect x="84" y="392" width="188" height="70" rx="16" fill="#E9F7F4"/>
-  <text x="104" y="434" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1F9D8B">Proprio</text>
-  <text x="104" y="455" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Position, velocity, goal, phase</text>
-  <rect x="84" y="484" width="188" height="70" rx="16" fill="#FBECEE"/>
-  <text x="104" y="526" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#D1495B">Actions</text>
-  <text x="104" y="547" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Simple control inputs per step</text>
+  <rect x="56" y="34" width="1328" height="140" rx="30" fill="url(#header)"/>
+  <text x="96" y="96" font-family="Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">Multimodal World Model Throughput Lab</text>
+  <text x="96" y="132" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#E7F3FB">A compact systems-learning project: synthetic trajectories, multimodal encoders, a causal transformer, and profiling hooks that map cleanly to Nsight timelines.</text>
 
-  <rect x="372" y="196" width="254" height="398" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
-  <text x="398" y="234" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Encoders</text>
-  <text x="398" y="266" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">Image and state/action streams produce aligned tokens</text>
-  <rect x="398" y="304" width="202" height="108" rx="18" fill="#E8F1FA"/>
-  <text x="420" y="346" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F6CBD">CNN Frame Encoder</text>
-  <text x="420" y="372" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Conv kernels create profiling targets for</text>
-  <text x="420" y="391" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">memory format and decoder throughput</text>
-  <rect x="398" y="440" width="202" height="108" rx="18" fill="#E9F7F4"/>
-  <text x="420" y="482" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#1F9D8B">MLP State Encoder</text>
-  <text x="420" y="508" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">GEMM-heavy fusion path for proprio</text>
-  <text x="420" y="527" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">and action features</text>
+  <rect x="70" y="220" width="250" height="520" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="100" y="268" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Dataset</text>
+  <text x="100" y="300" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">Long-horizon sequences generated on the fly</text>
 
-  <rect x="702" y="160" width="312" height="470" rx="30" fill="#FFFFFF" stroke="#D8DEE6"/>
-  <text x="734" y="210" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Temporal Backbone</text>
-  <text x="734" y="242" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">Concatenate latents, add positions, run a causal transformer</text>
-  <rect x="744" y="288" width="228" height="70" rx="18" fill="#EEF2FF"/>
-  <text x="768" y="331" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#4B56D2">Fusion Projection</text>
-  <rect x="744" y="388" width="228" height="142" rx="22" fill="#F2F5FA" stroke="#CBD4DE"/>
-  <text x="768" y="426" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#132238">Causal Transformer</text>
-  <text x="768" y="456" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Attention and MLP blocks expose</text>
-  <text x="768" y="476" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">occupancy, register pressure, and</text>
-  <text x="768" y="496" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">scaling behavior under DDP</text>
-  <rect x="744" y="558" width="228" height="40" rx="12" fill="#FFF2DE"/>
-  <text x="768" y="583" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#B36B00">Predict latent for next-step heads</text>
+  <rect x="100" y="340" width="190" height="96" rx="18" fill="#E8F1FA"/>
+  <text x="126" y="383" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F6CBD">Frames</text>
+  <text x="126" y="411" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">RGB observations with</text>
+  <text x="126" y="430" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">agent and goal markers</text>
 
-  <rect x="1068" y="196" width="166" height="398" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
-  <text x="1092" y="234" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Heads</text>
-  <rect x="1092" y="282" width="118" height="74" rx="18" fill="#E8F1FA"/>
-  <text x="1112" y="325" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0F6CBD">Frame Decoder</text>
-  <rect x="1092" y="376" width="118" height="74" rx="18" fill="#E9F7F4"/>
-  <text x="1112" y="419" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#1F9D8B">State Head</text>
-  <rect x="1092" y="470" width="118" height="54" rx="16" fill="#FFF2DE"/>
-  <text x="1118" y="503" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#B36B00">Reward</text>
-  <rect x="1092" y="542" width="118" height="54" rx="16" fill="#FBECEE"/>
-  <text x="1115" y="575" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#D1495B">Done</text>
+  <rect x="100" y="462" width="190" height="96" rx="18" fill="#E9F7F4"/>
+  <text x="126" y="505" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#1F9D8B">Proprio</text>
+  <text x="126" y="533" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Position, velocity, goal,</text>
+  <text x="126" y="552" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">and phase features</text>
 
-  <line x1="298" y1="336" x2="372" y2="336" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="298" y1="428" x2="372" y2="494" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="626" y1="356" x2="702" y2="324" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="626" y1="494" x2="702" y2="324" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="1014" y1="430" x2="1068" y2="430" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="100" y="584" width="190" height="96" rx="18" fill="#FBECEE"/>
+  <text x="126" y="627" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#D1495B">Actions</text>
+  <text x="126" y="655" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">Control inputs that nudge</text>
+  <text x="126" y="674" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">the agent toward the goal</text>
 
-  <text x="58" y="676" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">Profiling hooks sit around batch transfer, forward, loss, backward, and optimizer step so you can connect code structure to Nsight timelines.</text>
+  <rect x="390" y="220" width="290" height="520" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="422" y="268" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Encoders</text>
+  <text x="422" y="300" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">Separate streams map each modality into tokens</text>
+
+  <rect x="422" y="344" width="226" height="150" rx="22" fill="#E8F1FA"/>
+  <text x="450" y="390" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0F6CBD">CNN Frame Encoder</text>
+  <text x="450" y="422" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">Convolutional kernels make it easy to study</text>
+  <text x="450" y="444" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">memory format, decoder cost, and image-path</text>
+  <text x="450" y="466" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">throughput under larger batch sizes.</text>
+
+  <rect x="422" y="534" width="226" height="150" rx="22" fill="#E9F7F4"/>
+  <text x="450" y="580" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#1F9D8B">MLP State Encoder</text>
+  <text x="450" y="612" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">The proprio and action path stays compact and</text>
+  <text x="450" y="634" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">GEMM-heavy, which makes performance changes</text>
+  <text x="450" y="656" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">easy to spot in profiling runs.</text>
+
+  <rect x="750" y="200" width="390" height="560" rx="30" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="786" y="256" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#132238">Temporal Backbone</text>
+  <text x="786" y="290" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">Fuse image and state tokens, add positional structure,</text>
+  <text x="786" y="312" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">and model long-horizon dynamics with a causal transformer.</text>
+
+  <rect x="790" y="352" width="310" height="88" rx="22" fill="#EEF2FF"/>
+  <text x="945" y="405" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#4B56D2">Fusion Projection</text>
+
+  <rect x="790" y="476" width="310" height="180" rx="24" fill="#F2F5FA" stroke="#CBD4DE"/>
+  <text x="945" y="526" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Causal Transformer</text>
+  <text x="945" y="560" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">Attention and MLP blocks expose the same</text>
+  <text x="945" y="582" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">occupancy, memory, and scaling questions you</text>
+  <text x="945" y="604" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#476072">would investigate in a larger training system.</text>
+
+  <rect x="812" y="688" width="266" height="42" rx="14" fill="#FFF2DE"/>
+  <text x="945" y="715" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#B36B00">Predict next-step latent state</text>
+
+  <rect x="1190" y="220" width="180" height="520" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="1222" y="268" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Heads</text>
+  <text x="1222" y="300" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#5B6876">Supervision targets</text>
+
+  <rect x="1222" y="340" width="116" height="82" rx="18" fill="#E8F1FA"/>
+  <text x="1280" y="388" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F6CBD">Frame</text>
+  <text x="1280" y="409" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">decoder</text>
+
+  <rect x="1222" y="452" width="116" height="82" rx="18" fill="#E9F7F4"/>
+  <text x="1280" y="500" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1F9D8B">State</text>
+  <text x="1280" y="521" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#476072">prediction</text>
+
+  <rect x="1222" y="564" width="116" height="70" rx="18" fill="#FFF2DE"/>
+  <text x="1280" y="607" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#B36B00">Reward</text>
+
+  <rect x="1222" y="652" width="116" height="70" rx="18" fill="#FBECEE"/>
+  <text x="1280" y="695" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#D1495B">Done</text>
+
+  <line x1="320" y1="480" x2="390" y2="480" stroke="#50687A" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="680" y1="480" x2="750" y2="480" stroke="#50687A" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1140" y1="480" x2="1190" y2="480" stroke="#50687A" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="354" y="462" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5B6876">encode</text>
+  <text x="715" y="462" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5B6876">fuse and model</text>
+  <text x="1164" y="462" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5B6876">predict</text>
+
+  <rect x="70" y="792" width="1300" height="66" rx="20" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="96" y="833" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#5B6876">Profiling hooks surround host-to-device transfer, forward, loss, backward, and optimizer step so every box in this diagram has a visible counterpart in the Nsight timeline.</text>
 </svg>
 
