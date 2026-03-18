@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "world-model-throughput-lab"
+version = "0.1.0"
+description = "A small PyTorch lab for learning multi-GPU world-model training and profiling."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "torch>=2.2",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

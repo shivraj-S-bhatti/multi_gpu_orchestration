@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img" aria-labelledby="title desc">
+  <title id="title">Profiling workflow overview</title>
+  <desc id="desc">Diagram showing how training steps, NVTX ranges, Nsight Systems, and Nsight Compute fit together.</desc>
+  <rect width="1280" height="780" fill="#F4F7FB"/>
+  <defs>
+    <linearGradient id="banner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132238"/>
+      <stop offset="100%" stop-color="#0F6CBD"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#486071"/>
+    </marker>
+  </defs>
+  <rect x="32" y="28" width="1216" height="118" rx="26" fill="url(#banner)"/>
+  <text x="68" y="82" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">From Training Loop to Profiler Insight</text>
+  <text x="68" y="116" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#D8E8F6">Use NVTX ranges to connect Python-level training phases to the CUDA timeline, then zoom into individual kernels with Nsight Compute.</text>
+
+  <rect x="56" y="188" width="1168" height="220" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="88" y="230" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Step Timeline</text>
+  <text x="88" y="258" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">The trainer labels each phase with NVTX so the timeline is easy to interpret.</text>
+
+  <text x="104" y="316" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#132238">CPU launcher / dataloader</text>
+  <line x1="280" y1="310" x2="1164" y2="310" stroke="#CBD4DE" stroke-width="3"/>
+  <rect x="360" y="292" width="108" height="36" rx="12" fill="#E9F7F4"/>
+  <rect x="726" y="292" width="96" height="36" rx="12" fill="#E9F7F4"/>
+  <text x="384" y="316" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1F9D8B">batch N+1</text>
+  <text x="748" y="316" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1F9D8B">batch N+2</text>
+
+  <text x="104" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#132238">GPU rank 0</text>
+  <line x1="280" y1="366" x2="1164" y2="366" stroke="#CBD4DE" stroke-width="3"/>
+  <rect x="304" y="348" width="132" height="36" rx="12" fill="#FFF2DE"/>
+  <rect x="446" y="348" width="204" height="36" rx="12" fill="#E8F1FA"/>
+  <rect x="662" y="348" width="120" height="36" rx="12" fill="#FBECEE"/>
+  <rect x="794" y="348" width="192" height="36" rx="12" fill="#EEF2FF"/>
+  <rect x="1000" y="348" width="128" height="36" rx="12" fill="#E9F7F4"/>
+  <text x="328" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#B36B00">host_to_device</text>
+  <text x="518" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F6CBD">forward</text>
+  <text x="701" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#D1495B">loss</text>
+  <text x="858" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#4B56D2">backward / all-reduce</text>
+  <text x="1020" y="372" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1F9D8B">optimizer</text>
+
+  <text x="104" y="428" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#132238">GPU rank 1</text>
+  <line x1="280" y1="422" x2="1164" y2="422" stroke="#CBD4DE" stroke-width="3"/>
+  <rect x="312" y="404" width="124" height="36" rx="12" fill="#FFF2DE"/>
+  <rect x="450" y="404" width="194" height="36" rx="12" fill="#E8F1FA"/>
+  <rect x="656" y="404" width="114" height="36" rx="12" fill="#FBECEE"/>
+  <rect x="786" y="404" width="188" height="36" rx="12" fill="#EEF2FF"/>
+  <rect x="988" y="404" width="128" height="36" rx="12" fill="#E9F7F4"/>
+
+  <rect x="56" y="456" width="560" height="278" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="88" y="500" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Nsight Systems Questions</text>
+  <text x="88" y="536" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#5B6876">Use `nsys` when you need a global view of time.</text>
+  <text x="88" y="580" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">1. Are host-to-device copies overlapping with useful compute?</text>
+  <text x="88" y="612" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">2. Are dataloader stalls introducing idle bubbles?</text>
+  <text x="88" y="644" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">3. Do NCCL collectives dominate at small per-rank batches?</text>
+  <text x="88" y="676" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">4. Which high-level phase deserves deeper kernel inspection?</text>
+
+  <rect x="664" y="456" width="560" height="278" rx="24" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="696" y="500" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#132238">Nsight Compute Questions</text>
+  <text x="696" y="536" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#5B6876">Use `ncu` when one region or kernel already looks suspicious.</text>
+  <text x="696" y="580" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">1. Is occupancy limited by registers, shared memory, or launch shape?</text>
+  <text x="696" y="612" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">2. Is the kernel memory-bound or compute-bound?</text>
+  <text x="696" y="644" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">3. Are Tensor Cores engaged for the GEMM-heavy path?</text>
+  <text x="696" y="676" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">4. Would a larger batch or different memory format improve utilization?</text>
+
+  <line x1="640" y1="610" x2="664" y2="610" stroke="#486071" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

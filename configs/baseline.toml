@@ -1,0 +1,40 @@
+[system]
+seed = 7
+device = "auto"
+compile_model = false
+channels_last = false
+allow_tf32 = true
+cudnn_benchmark = false
+
+[data]
+dataset_size = 4096
+seq_len = 33
+image_size = 32
+batch_size = 8
+num_workers = 0
+pin_memory = false
+prefetch_factor = 2
+persistent_workers = false
+action_dim = 4
+proprio_dim = 8
+
+[model]
+latent_dim = 128
+model_dim = 256
+num_layers = 4
+num_heads = 8
+dropout = 0.1
+mlp_ratio = 4.0
+
+[train]
+max_steps = 100
+learning_rate = 0.0003
+weight_decay = 0.01
+grad_clip_norm = 1.0
+amp_dtype = "none"
+log_every = 10
+save_every = 50
+checkpoint_dir = "artifacts/checkpoints"
+metrics_path = "artifacts/metrics/train_metrics.jsonl"
+torch_profile_dir = "artifacts/profiles/torch"
+
