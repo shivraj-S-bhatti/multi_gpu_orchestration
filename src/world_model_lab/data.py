@@ -6,6 +6,7 @@ import torch
 from torch.utils.data import Dataset
 
 
+# [portfolio:synthetic-trajectory-generator]
 class SyntheticWorldModelDataset(Dataset[dict[str, torch.Tensor]]):
     """Generates long-horizon multimodal sequences on the fly."""
 
@@ -147,4 +148,4 @@ class SyntheticWorldModelDataset(Dataset[dict[str, torch.Tensor]]):
         y0 = max(0, center_y - width)
         y1 = min(self.image_size, center_y + width + 1)
         frame[:, y0:y1, x0:x1] = color[:, None, None]
-
+# [/portfolio]

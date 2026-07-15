@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">Profiling workflow overview</title>
+  <desc id="desc">Diagram showing aligned training phases and how they map to Nsight Systems and Nsight Compute questions.</desc>
+  <rect width="1440" height="820" fill="#F4F7FB"/>
+  <defs>
+    <linearGradient id="banner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132238"/>
+      <stop offset="100%" stop-color="#0F6CBD"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="56" y="34" width="1328" height="118" rx="28" fill="url(#banner)"/>
+  <text x="94" y="89" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">From Training Loop to Profiler Insight</text>
+  <text x="94" y="125" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#DCEBFA">Use aligned NVTX phases to find the slow region, then inspect kernels with the right profiler.</text>
+
+  <rect x="70" y="190" width="1300" height="300" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="108" y="238" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#132238">Step Timeline</text>
+  <text x="108" y="266" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">Three aligned rows make stalls, overlap, and communication cost easy to spot.</text>
+
+  <text x="126" y="330" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#132238">CPU dataloader</text>
+  <text x="126" y="400" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#132238">GPU rank 0</text>
+  <text x="126" y="470" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#132238">GPU rank 1</text>
+
+  <line x1="338" y1="322" x2="1268" y2="322" stroke="#CBD4DE" stroke-width="4"/>
+  <line x1="338" y1="392" x2="1268" y2="392" stroke="#CBD4DE" stroke-width="4"/>
+  <line x1="338" y1="462" x2="1268" y2="462" stroke="#CBD4DE" stroke-width="4"/>
+
+  <rect x="474" y="298" width="120" height="48" rx="16" fill="#E5F7F4"/>
+  <rect x="850" y="298" width="120" height="48" rx="16" fill="#E5F7F4"/>
+  <text x="534" y="328" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1F9D8B">batch N+1</text>
+  <text x="910" y="328" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1F9D8B">batch N+2</text>
+
+  <rect x="374" y="368" width="112" height="48" rx="16" fill="#FFF2DE"/>
+  <rect x="500" y="368" width="172" height="48" rx="16" fill="#E8F1FA"/>
+  <rect x="686" y="368" width="104" height="48" rx="16" fill="#FBECEE"/>
+  <rect x="804" y="368" width="210" height="48" rx="16" fill="#EEF2FF"/>
+  <rect x="1028" y="368" width="116" height="48" rx="16" fill="#E5F7F4"/>
+  <text x="430" y="398" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#B36B00">H2D</text>
+  <text x="586" y="398" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#0F6CBD">forward</text>
+  <text x="738" y="398" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#D1495B">loss</text>
+  <text x="909" y="398" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#4B56D2">bwd + allreduce</text>
+  <text x="1086" y="398" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1F9D8B">optim</text>
+
+  <rect x="374" y="438" width="112" height="48" rx="16" fill="#FFF2DE" opacity="0.88"/>
+  <rect x="500" y="438" width="172" height="48" rx="16" fill="#E8F1FA" opacity="0.88"/>
+  <rect x="686" y="438" width="104" height="48" rx="16" fill="#FBECEE" opacity="0.88"/>
+  <rect x="804" y="438" width="210" height="48" rx="16" fill="#EEF2FF" opacity="0.88"/>
+  <rect x="1028" y="438" width="116" height="48" rx="16" fill="#E5F7F4" opacity="0.88"/>
+  <text x="430" y="468" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#B36B00">H2D</text>
+  <text x="586" y="468" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#0F6CBD">forward</text>
+  <text x="738" y="468" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#D1495B">loss</text>
+  <text x="909" y="468" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#4B56D2">bwd + allreduce</text>
+  <text x="1086" y="468" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1F9D8B">optim</text>
+
+  <text x="720" y="528" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5B6876">Same phase order on each rank reveals bubbles, overlap, and scaling cost.</text>
+  <line x1="720" y1="548" x2="720" y2="584" stroke="#CBD4DE" stroke-width="2"/>
+
+  <rect x="70" y="586" width="610" height="200" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="108" y="634" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Nsight Systems</text>
+  <text x="108" y="662" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">Use `nsys` to answer timeline questions first.</text>
+  <text x="108" y="706" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">1. Do copies overlap compute?</text>
+  <text x="108" y="740" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">2. Are loaders leaving idle gaps?</text>
+  <text x="108" y="774" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">3. Is NCCL limiting scaling?</text>
+
+  <rect x="760" y="586" width="610" height="200" rx="28" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <text x="798" y="634" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#132238">Nsight Compute</text>
+  <text x="798" y="662" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5B6876">Use `ncu` once a region already looks slow.</text>
+  <text x="798" y="706" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">1. Is occupancy low?</text>
+  <text x="798" y="740" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">2. Is the kernel memory-bound?</text>
+  <text x="798" y="774" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#132238">3. Are Tensor Cores active?</text>
+</svg>

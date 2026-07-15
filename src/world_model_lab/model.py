@@ -66,6 +66,7 @@ class StateActionEncoder(nn.Module):
         return self.net(torch.cat([proprio, actions], dim=-1))
 
 
+# [portfolio:multimodal-world-model]
 class WorldModel(nn.Module):
     def __init__(
         self,
@@ -144,3 +145,4 @@ class WorldModel(nn.Module):
     def _causal_mask(seq_len: int, device: torch.device) -> torch.Tensor:
         mask = torch.full((seq_len, seq_len), float("-inf"), device=device)
         return torch.triu(mask, diagonal=1)
+# [/portfolio]

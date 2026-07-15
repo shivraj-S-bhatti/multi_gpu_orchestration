@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Tutorial Run Metrics</title>
+  <desc id="desc">A summary of world model training metrics across 8 logged steps.</desc>
+  <rect width="1200" height="780" fill="#F4F7FB" />
+  <defs>
+    <linearGradient id="hero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F6CBD" />
+      <stop offset="100%" stop-color="#1F9D8B" />
+    </linearGradient>
+  </defs>
+  <rect x="48" y="32" width="1104" height="132" rx="24" fill="url(#hero)" />
+  <text x="84" y="86" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">Tutorial Run Metrics</text>
+  <text x="84" y="116" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#EAF3FB">Compact training metrics rendered from JSONL step logs.</text>
+  <text x="84" y="142" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#D7E8F7">Logged steps: 1, 2, 3, 4, 5, 6, 7, 8</text>
+
+  <g>
+    <rect x="48.0" y="188.0" width="1104.0" height="176.0" rx="18" fill="#FFFFFF" stroke="#D8DEE6" />
+    <text x="68.0" y="218.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#132238">Total Loss</text>
+    <text x="68.0" y="240.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">Loss across logged steps</text>
+    <text x="1132.0" y="218.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#D1495B">0.365</text>
+    <text x="1132.0" y="240.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">min 0.359 / max 0.476</text>
+    <line x1="66.0" y1="258.0" x2="1134.0" y2="258.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="285.3" x2="1134.0" y2="285.3" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="312.7" x2="1134.0" y2="312.7" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="340.0" x2="1134.0" y2="340.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" />
+    <polygon points="66.00,340.00 66.00,261.26 218.57,258.00 371.14,323.10 523.71,307.65 676.29,320.68 828.86,340.00 981.43,329.70 1134.00,335.99 1134.00,340.00" fill="#D1495B" opacity="0.12" />
+    <polyline points="66.00,261.26 218.57,258.00 371.14,323.10 523.71,307.65 676.29,320.68 828.86,340.00 981.43,329.70 1134.00,335.99" fill="none" stroke="#D1495B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+
+  <g>
+    <rect x="48.0" y="392.0" width="532.0" height="320.0" rx="18" fill="#FFFFFF" stroke="#D8DEE6" />
+    <text x="68.0" y="422.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#132238">Step Time (ms)</text>
+    <text x="68.0" y="444.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">Latency per optimizer step</text>
+    <text x="560.0" y="422.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F6CBD">317.814</text>
+    <text x="560.0" y="444.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">min 317.814 / max 586.791</text>
+    <line x1="66.0" y1="462.0" x2="562.0" y2="462.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="537.3" x2="562.0" y2="537.3" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="612.7" x2="562.0" y2="612.7" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="66.0" y1="688.0" x2="562.0" y2="688.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" />
+    <polygon points="66.00,688.00 66.00,502.55 136.86,462.00 207.71,527.49 278.57,612.72 349.43,648.57 420.29,653.96 491.14,673.00 562.00,688.00 562.00,688.00" fill="#0F6CBD" opacity="0.12" />
+    <polyline points="66.00,502.55 136.86,462.00 207.71,527.49 278.57,612.72 349.43,648.57 420.29,653.96 491.14,673.00 562.00,688.00" fill="none" stroke="#0F6CBD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+
+  <g>
+    <rect x="620.0" y="392.0" width="532.0" height="320.0" rx="18" fill="#FFFFFF" stroke="#D8DEE6" />
+    <text x="640.0" y="422.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#132238">Frames / Second</text>
+    <text x="640.0" y="444.0" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">Global sequence throughput</text>
+    <text x="1132.0" y="422.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1F9D8B">805.502</text>
+    <text x="1132.0" y="444.0" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#5B6876">min 436.271 / max 805.502</text>
+    <line x1="638.0" y1="462.0" x2="1134.0" y2="462.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="638.0" y1="537.3" x2="1134.0" y2="537.3" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="638.0" y1="612.7" x2="1134.0" y2="612.7" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" /><line x1="638.0" y1="688.0" x2="1134.0" y2="688.0" stroke="#D8DEE6" stroke-width="1" stroke-dasharray="4 6" />
+    <polygon points="638.00,688.00 638.00,664.07 708.86,688.00 779.71,647.09 850.57,570.42 921.43,525.44 992.29,517.74 1063.14,488.21 1134.00,462.00 1134.00,688.00" fill="#1F9D8B" opacity="0.12" />
+    <polyline points="638.00,664.07 708.86,688.00 779.71,647.09 850.57,570.42 921.43,525.44 992.29,517.74 1063.14,488.21 1134.00,462.00" fill="none" stroke="#1F9D8B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+</svg>

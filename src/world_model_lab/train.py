@@ -167,6 +167,7 @@ def append_metrics(config: ExperimentConfig, payload: dict[str, float | int]) ->
         handle.write(json.dumps(payload) + "\n")
 
 
+# [portfolio:ddp-profiling-loop]
 def train(config: ExperimentConfig, emit_nvtx: bool, torch_profile: bool) -> None:
     context = init_distributed(config.system.device)
     try:
@@ -283,6 +284,7 @@ def train(config: ExperimentConfig, emit_nvtx: bool, torch_profile: bool) -> Non
                     save_checkpoint(model, optimizer, config, step)
     finally:
         cleanup_distributed()
+# [/portfolio]
 
 
 def main() -> None:
